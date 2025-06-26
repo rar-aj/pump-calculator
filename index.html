@@ -3,106 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pump Power & Shaft Calculator</title>
+    <title>Pump Power Calculator</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="calculator">
-        <div class="header">
+    <div class="app-container">
+        <header class="app-header">
             <h1>Binary Vapour Cycle Pump Calculator</h1>
-        </div>
-        
-        <div class="input-section">
-            <h2>Input Parameters</h2>
-            
-            <div class="input-group">
-                <label for="flow-rate">Flow Rate</label>
-                <input type="number" id="flow-rate" value="20" step="0.1">
-                <span class="unit">m³/min</span>
-            </div>
-            
-            <div class="input-group">
-                <label for="rpm">Pump Speed</label>
-                <input type="number" id="rpm" value="750" step="1">
-                <span class="unit">rpm</span>
-            </div>
-            
-            <div class="input-group">
-                <label for="head">Dynamic Head</label>
-                <input type="number" id="head" value="8" step="0.1">
-                <span class="unit">m</span>
-            </div>
-            
-            <div class="input-group">
-                <label for="efficiency">Pump Efficiency</label>
-                <input type="number" id="efficiency" value="90" step="1">
-                <span class="unit">%</span>
-            </div>
-            
-            <div class="input-group">
-                <label for="stress">Max Shear Stress</label>
-                <input type="number" id="stress" value="50" step="1">
-                <span class="unit">MPa</span>
-            </div>
-            
-            <div class="input-group">
-                <label for="torque-factor">Torque Safety Factor</label>
-                <input type="number" id="torque-factor" value="30" step="1">
-                <span class="unit">%</span>
-            </div>
-            
-            <div class="button-group">
-                <button id="calculate-btn">Calculate</button>
-                <button id="reset-btn">Reset</button>
-            </div>
-        </div>
-        
-        <div class="results-section">
-            <h2>Calculation Results</h2>
-            
-            <div class="result-group">
-                <label>Hydraulic Power</label>
-                <div>
-                    <span id="hyd-power" class="result-value">0</span>
-                    <span class="unit">kW</span>
+        </header>
+
+        <main class="app-content">
+            <section class="input-panel">
+                <h2>Input Parameters</h2>
+                
+                <div class="input-group">
+                    <label for="flow-rate">Flow Rate</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="flow-rate" value="20" step="0.1">
+                        <span class="unit">m³/min</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="result-group">
-                <label>Shaft Power</label>
-                <div>
-                    <span id="shaft-power" class="result-value">0</span>
-                    <span class="unit">kW</span>
+                
+                <div class="input-group">
+                    <label for="rpm">Pump Speed</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="rpm" value="750" step="1">
+                        <span class="unit">rpm</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="result-group">
-                <label>Average Torque</label>
-                <div>
-                    <span id="avg-torque" class="result-value">0</span>
-                    <span class="unit">N·m</span>
+                
+                <div class="input-group">
+                    <label for="head">Dynamic Head</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="head" value="8" step="0.1">
+                        <span class="unit">m</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="result-group">
-                <label>Maximum Torque</label>
-                <div>
-                    <span id="max-torque" class="result-value">0</span>
-                    <span class="unit">N·m</span>
+                
+                <div class="input-group">
+                    <label for="efficiency">Pump Efficiency</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="efficiency" value="90" step="1">
+                        <span class="unit">%</span>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="result-group">
-                <label>Shaft Diameter</label>
-                <div>
-                    <span id="shaft-diameter" class="result-value">0</span>
-                    <span class="unit">mm</span>
+                
+                <div class="input-group">
+                    <label for="stress">Max Shear Stress</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="stress" value="50" step="1">
+                        <span class="unit">MPa</span>
+                    </div>
                 </div>
-            </div>
-        </div>
+                
+                <div class="input-group">
+                    <label for="torque-factor">Torque Safety Factor</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="torque-factor" value="30" step="1">
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="calculate-btn" class="primary-btn">Calculate</button>
+                    <button id="reset-btn" class="secondary-btn">Reset</button>
+                </div>
+            </section>
+
+            <section class="output-panel">
+                <h2>Calculation Results</h2>
+                
+                <div class="result-card">
+                    <div class="result-label">Hydraulic Power</div>
+                    <div class="result-value">
+                        <span id="hyd-power">0</span>
+                        <span class="unit">kW</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Shaft Power</div>
+                    <div class="result-value">
+                        <span id="shaft-power">0</span>
+                        <span class="unit">kW</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Average Torque</div>
+                    <div class="result-value">
+                        <span id="avg-torque">0</span>
+                        <span class="unit">N·m</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Maximum Torque</div>
+                    <div class="result-value">
+                        <span id="max-torque">0</span>
+                        <span class="unit">N·m</span>
+                    </div>
+                </div>
+                
+                <div class="result-card">
+                    <div class="result-label">Shaft Diameter</div>
+                    <div class="result-value">
+                        <span id="shaft-diameter">0</span>
+                        <span class="unit">mm</span>
+                    </div>
+                </div>
+            </section>
+        </main>
     </div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
